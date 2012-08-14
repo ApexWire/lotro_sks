@@ -7,6 +7,7 @@
         <?php echo $this->Form->input('api_key'); ?>
         <?php echo $this->Form->input('url'); ?>
         <?php echo $this->Form->input('worldname'); ?>
+        <?php echo $this->Form->input('maxLevel'); ?>
     </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>

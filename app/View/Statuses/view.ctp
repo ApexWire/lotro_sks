@@ -23,17 +23,13 @@
     <?php if (!empty($status['Player'])): ?>
     <table cellpadding = "0" cellspacing = "0">
         <tr>
-            <th><?php echo __('Id'); ?></th>
             <th><?php echo __('Name'); ?></th>
-            <th><?php echo __('Status Id'); ?></th>
             <th class="actions"><?php echo __('Actions'); ?></th>
         </tr>
         <?php $i = 0; ?>
         <?php foreach ($status['Player'] as $player): ?>
         <tr>
-            <td><?php echo $player['id']; ?></td>
             <td><?php echo $player['name']; ?></td>
-            <td><?php echo $player['status_id']; ?></td>
             <td class="actions">
                 <?php echo $this->Html->link(__('View'), array('controller' => 'players', 'action' => 'view', $player['id'])); ?>
                 <?php echo $this->Html->link(__('Edit'), array('controller' => 'players', 'action' => 'edit', $player['id'])); ?>

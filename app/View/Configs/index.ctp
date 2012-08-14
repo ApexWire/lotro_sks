@@ -6,6 +6,7 @@
             <th><?php echo __('Api key'); ?></th>
             <th><?php echo __('URL'); ?></th>
             <th><?php echo __('Worldname'); ?></th>
+            <th><?php echo __('maximum Level'); ?></th>
             <th class="actions"><?php echo __('Actions'); ?></th>
         </tr>
         <?php foreach ($configs as $config): ?>
@@ -14,6 +15,7 @@
             <td><?php echo h($config['Config']['api_key']); ?>&nbsp;</td>
             <td><?php echo h($config['Config']['url']); ?>&nbsp;</td>
             <td><?php echo h($config['Config']['worldname']); ?>&nbsp;</td>
+            <td><?php echo h($config['Config']['maxLevel']); ?>&nbsp;</td>
             <td class="actions">
                 <?php echo $this->Html->link(__('View'), array('action' => 'view', $config['Config']['id'])); ?>
                 <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $config['Config']['id'])); ?>

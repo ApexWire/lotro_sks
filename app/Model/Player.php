@@ -70,7 +70,7 @@ class Player extends AppModel {
         'Character' => array(
             'className' => 'Character',
             'foreignKey' => 'player_id',
-            'dependent' => false,
+            'dependent' => true,
             'conditions' => '',
             'fields' => '',
             'order' => '',

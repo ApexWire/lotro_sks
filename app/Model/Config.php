@@ -71,5 +71,13 @@ class Config extends AppModel {
                 'required' => true,
             ),
         ),
+        'maxLevel' => array(
+            'numeric' => array(
+                'rule' => array('numeric'),
+                'message' => 'Please enter the maximum level of characters',
+                'allowEmpty' => false,
+                'required' => true,
+            ),
+        ),
     );
 }

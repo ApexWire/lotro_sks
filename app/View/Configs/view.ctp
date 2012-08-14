@@ -11,6 +11,8 @@
         <dd><?php echo h($config['Config']['url']); ?>&nbsp;</dd>
         <dt><?php echo __('Worldname'); ?></dt>
         <dd><?php echo h($config['Config']['worldname']); ?>&nbsp;</dd>
+        <dt><?php echo __('maximum Level'); ?></dt>
+        <dd><?php echo h($config['Config']['maxLevel']); ?>&nbsp;</dd>
     </dl>
 </div>
 <div class="actions">
