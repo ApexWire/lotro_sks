@@ -15,7 +15,7 @@
             <td><?php echo h($ranking['Ranking']['parent_id']); ?>&nbsp;</td>
             <td><?php echo h($ranking['Ranking']['lft']); ?>&nbsp;</td>
             <td><?php echo h($ranking['Ranking']['rght']); ?>&nbsp;</td>
-            <td><?php echo (!is_null($ranking['Ranking']['parent_id']) && !$ranking['Ranking']['is_player']) ? $this->Html->link(h($ranking['Ranking']['name']), array('action' => 'showSKS', $ranking['Ranking']['id'])) : h($ranking['Ranking']['name']); ?>&nbsp;</td>
+            <td><?php echo ($ranking['Ranking']['is_raid']) ? $this->Html->link(h($ranking['Ranking']['name']), array('action' => 'showSKS', $ranking['Ranking']['id'])) : h($ranking['Ranking']['name']); ?>&nbsp;</td>
             <td class="actions">
                 <?php echo $this->Html->link(__('View'), array('action' => 'view', $ranking['Ranking']['id'])); ?>
                 <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $ranking['Ranking']['id'])); ?>
