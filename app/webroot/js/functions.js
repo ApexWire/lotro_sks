@@ -51,7 +51,6 @@ function loadRankings() {
         $.each(suicideOptions, function(key, value) {
             players.push({id: $(value).attr('data-id'), player: $(value).attr('data-player'), character: $(value).attr('value')});
         });
-        console.log(players);
 
         var url         = "/ajax/loadRankings/";
         var data        = {players: players, raidId: raidId};
@@ -62,5 +61,5 @@ function loadRankings() {
 }
 
 function loadRankingsCallback(data) {
-    console.log(true);
+    console.log(data);
 }

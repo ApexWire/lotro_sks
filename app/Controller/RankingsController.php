@@ -93,10 +93,6 @@ class RankingsController extends AppController {
         $this->set('items', $this->SuicideItem->find('all', array('order' => 'name ASC')));
     }
 
-    public function ajaxRequest() {
-        
-    }
-
     /**
  * view method
  *

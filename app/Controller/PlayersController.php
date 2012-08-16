@@ -99,4 +99,8 @@ class PlayersController extends AppController {
         $this->Session->setFlash(__('Player was not deleted'));
         $this->redirect(array('action' => 'index'));
     }
+
+    /**
+     * @todo when delete player, delete player from rankings
+     */
 }
