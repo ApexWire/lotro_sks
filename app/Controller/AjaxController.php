@@ -22,8 +22,19 @@ class AjaxController extends AppController {
             foreach ($this->request->data['players'] as $player) {
                 $conditions[]   = $player['id'];
             }
-            $parentId   = $this->Ranking->field('id', 'Ranking.parent_id IS NULL');
-            $ranking    = $this->Ranking->find('all', array('conditions' => array('AND' => array('Ranking.parent_id' => $parentId, 'Ranking.name' => $conditions))));
+            $parentId   = $this->Ranking->field('id', array('name' => $raidId));
+            $ranking    = $this->Ranking->generateTreeList(array('AND' => array('Ranking.parent_id' => $parentId, 'OR' => array('Ranking.name' => $conditions))));
+            foreach ($ranking as $key => $value) {
+                foreach ($this->request->data['players'] as $player) {
+                    if ($value == $player['id']) {
+                        $ranking[$key]                  = array();
+                        $ranking[$key]['id']            = $value;
+                        $ranking[$key]['playerName']    = $player['player'];
+                        $ranking[$key]['characterName'] = $player['character'];
+                        break;
+                    }
+                }
+            }
             $this->set('rankings', $ranking);
         } else {
             $this->redirect("/");
