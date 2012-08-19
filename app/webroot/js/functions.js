@@ -54,12 +54,22 @@ function loadRankings() {
 
         var url         = "/ajax/loadRankings/";
         var data        = {players: players, raidId: raidId};
-        var callback    = loadRankingsCallback(data);
+        var callback    = function(data) {
+            var rankingOptions  = $('.rankingList select');
+            $.each(data.rankings, function(key, value) {
+                var newOption   = '<option value="' + value.id + '" data-pos="' + key + '" data-player="' + value.playerName + '">' + value.characterName + '</option>';
+                $(rankingOptions).append(newOption);
+            });
+        };
         var type        = "json";
         $.post(url, data, callback, type);
     }
 }
 
-function loadRankingsCallback(data) {
-    console.log(data);
+function killPlayer() {
+    var playerId    = $('#rankingList :selected').val();
+    var playerPos   = $('#rankingList :selected').attr('data-pos');
+    var playerName  = $('#rankingList :selected').attr('data-player');
+    var itemId      = $('#itemList :selected').val();
+    var itemName    = $('#itemList :selected').html();
 }

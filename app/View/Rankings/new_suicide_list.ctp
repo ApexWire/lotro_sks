@@ -24,6 +24,24 @@
     <div class="loadRankings">
         <button id="loadRankings"><?php echo __('Load rankings for selected players'); ?></button>
     </div>
+
+    <div class="rankingList">
+        <label for="rankingList"><?php echo __('RankingList') ?></label>
+        <select id="rankingList" name="rankingList" size="20"></select>
+    </div>
+
+    <div class="itemList">
+        <label for="itemList"><?php echo __('ItemList'); ?></label>
+        <select id="itemList" name="itemList">
+            <?php foreach ($items as $item): ?>
+            <option value="<?php echo $item['SuicideItem']['id'] ?>"><?php echo $item['SuicideItem']['name'] ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <div class="killPlayer">
+        <button id="killPlayer"></button>
+    </div>
 </div>
 <div class="actions">
     <h3><?php echo __('Actions'); ?></h3>
