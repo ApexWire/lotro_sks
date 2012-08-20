@@ -30,6 +30,8 @@ class Ranking extends AppModel {
                 $data   = array();
                 $data['Ranking']['parent_id']   = $parentId;
                 $data['Ranking']['name']        = $raid['Raid']['id'];
+                $data['Ranking']['is_player']   = false;
+                $data['Ranking']['is_raid']     = true;
                 if (!$this->save($data)) $error = true;
             }
         }
@@ -58,6 +60,8 @@ class Ranking extends AppModel {
                     $data   = array();
                     $data['Ranking']['parent_id']   = $parent['Ranking']['id'];
                     $data['Ranking']['name']        = $player['Player']['id'];
+                    $data['Ranking']['is_player']   = true;
+                    $data['Ranking']['is_raid']     = false;
                     if (!$this->save($data)) $error = true;
                 }
             }

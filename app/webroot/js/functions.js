@@ -49,7 +49,11 @@ function loadRankings() {
     if (!isEmpty) {
         var players = [];
         $.each(suicideOptions, function(key, value) {
-            players.push({id: $(value).attr('data-id'), player: $(value).attr('data-player'), character: $(value).attr('value')});
+            players.push({
+                id: $(value).attr('data-id'),
+                player: $(value).attr('data-player'),
+                character: $(value).attr('value')
+            });
         });
 
         var url         = "/ajax/loadRankings/";
@@ -72,4 +76,26 @@ function killPlayer() {
     var playerName  = $('#rankingList :selected').attr('data-player');
     var itemId      = $('#itemList :selected').val();
     var itemName    = $('#itemList :selected').html();
+    var raidId      = $('#RaidId').val();
+
+    var rankingList = $('#rankingList option');
+    var rankings    = [];
+
+    $.each(rankingList, function(key, value) {
+        rankings.push({
+            id: $(value).val(),
+            player: $(value).attr('data-player'),
+            character: $(value).html(),
+            position: $(value).attr('data-pos')
+        });
+    });
+
+    var url         = "/ajax/suicidePlayer/";
+    var data        = { rankings: rankings, raidId: raidId, playerId: playerId, playerPos: playerPos, playerName: playerName, itemId: itemId, itemName: itemName }
+    var callback    = function(data) {
+        console.log(data);
+    };
+    var type        = "json";
+
+    $.post(url, data, callback, type);
 }
